@@ -158,17 +158,9 @@ window.SecureStorage = SecureStorage;
 
 // ════════════════════════════════════════════════════════════
 // 5. PROTECCIÓN CONTRA CONSOLA EN PRODUCCIÓN
-//    Muestra un aviso si alguien abre DevTools
+//    (desactivado para no interferir con desarrollo)
 // ════════════════════════════════════════════════════════════
-(function () {
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
-  const warn = '%c⚠️ CULTYRA — Zona restringida\n%cSi alguien te pidió pegar código aquí, es un ataque de ingeniería social. No lo hagas.';
-  const s1   = 'color:#f87171;font-size:22px;font-weight:bold;';
-  const s2   = 'color:#9ec5a2;font-size:14px;';
-  setInterval(() => {
-    console.log(warn, s1, s2);
-  }, 8000);
-})();
+
 
 // ════════════════════════════════════════════════════════════
 // 6. VALIDACIÓN DE INPUTS DE FORMULARIO

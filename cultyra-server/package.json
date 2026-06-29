@@ -1,0 +1,18 @@
+{
+  "name": "cultyra-server",
+  "version": "2.0.0",
+  "description": "Servidor CULTYRA — Backend API con seguridad y CultIA multimodal",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "^4.19.0",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.2.0",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.4",
+    "hpp": "^0.2.3"
+  }
+}

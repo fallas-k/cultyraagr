@@ -1,0 +1,19 @@
+CULTYRA — Documentación Técnica Oficial
+=========================================
+Proyecto: CULTYRA · Agrotecnología Costarricense
+Institución: CTP José Figueres Ferrer · CORVEC 2026
+Equipo: Keilor Fallas · Eduar Urbina · José Navarro
+Asesor: Ing. Will Eduardo Chaves Castillo
+
+DOCUMENTOS INCLUIDOS:
+──────────────────────
+1. CULTYRA_Paleta_Colores.docx  — Guía de paleta Deep Graphite + Mint Glow
+2. CULTYRA_PRD.docx             — Requerimientos del Producto
+3. CULTYRA_TRD.docx             — Requerimientos Técnicos
+4. CULTYRA_UIUX.docx            — Diseño UI/UX
+5. CULTYRA_Flujo.docx           — Flujo de la Aplicación
+6. CULTYRA_Backend.docx         — Esquema del Backend
+7. CULTYRA_Plan.docx            — Plan de Implementación
+8. CULTYRA_Metodologias.docx    — Metodologías y Seguridad
+
+Plataforma: https://cultyraagro.web.app

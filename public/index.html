@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CULTYRA · Tecnología que cultiva el futuro</title>
+
+  <!-- PWA -->
+  <meta name="theme-color" content="#1a3a1f">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cultyra">
+  <link rel="icon" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Mapas (Leaflet) y PDF (jsPDF) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Estilos de Cultyra -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<meta name="theme-color" content="#1a3a1f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cultyra">
+
+</head>
+<body>
+
+<div id="splash">
+  <img src="img/logo.png" alt="Cultyra">
+  <p>Tecnología que cultiva el futuro</p>
+</div>
+
+<!-- ===== LANDING / PANTALLA PRINCIPAL ===== -->
+<div id="landing">
+  <!-- NAV -->
+  <div class="landing-nav">
+    <img src="img/logo.png" alt="Cultyra">
+    <div class="landing-nav-center">
+      <a href="#" class="lnav-link" onclick="return false;">Plataforma</a>
+      <a href="#" class="lnav-link" onclick="return false;">Funciones</a>
+      <a href="#" class="lnav-link" onclick="return false;">Precios</a>
+    </div>
+    <div class="landing-nav-right">
+      <button class="btn-idioma" onclick="toggleIdioma()" style="background:none;border:1px solid rgba(52,199,89,0.3);border-radius:999px;padding:7px 14px;font-size:12px;cursor:pointer;color:var(--green-lime,#86efac)">🌐 EN</button>
+      <button class="btn-landing-login" onclick="goToLogin()">Iniciar Sesión</button>
+    </div>
+  </div>
+
+  <!-- HERO PRINCIPAL — dos columnas -->
+  <div class="l-hero">
+    <!-- Izquierda: texto -->
+    <div class="l-hero-text">
+      <div class="l-tag">
+        <span class="l-tag-dot"></span>
+        Agrotecnología Costarricense
+      </div>
+      <h1 class="l-h1">El campo del<br>futuro se<br><em>cultiva</em> hoy</h1>
+      <p class="l-desc">Gestiona tus fincas con mapas satelitales, monitorea el clima hora a hora, asigna tareas a tu equipo y accede a un agrónomo IA disponible las 24 horas.</p>
+      <div class="l-actions">
+        <button class="btn-landing-cta" onclick="goToLogin()">Empezar gratis →</button>
+        <div class="l-trust">
+          <span>✅ Sin tarjeta</span>
+          <span>🔒 Cuenta segura</span>
+          <span>📱 iOS · Android · Web</span>
+        </div>
+      </div>
+      <div class="l-stats">
+        <div class="l-stat"><span class="l-stat-n">120<sup>+</sup></span><span class="l-stat-l">Fincas activas</span></div>
+        <div class="l-stat-div"></div>
+        <div class="l-stat"><span class="l-stat-n">500<sup>+</sup></span><span class="l-stat-l">Agricultores</span></div>
+        <div class="l-stat-div"></div>
+        <div class="l-stat"><span class="l-stat-n">28</span><span class="l-stat-l">Cultivos</span></div>
+        <div class="l-stat-div"></div>
+        <div class="l-stat"><span class="l-stat-n">24/7</span><span class="l-stat-l">IA activa</span></div>
+      </div>
+    </div>
+
+    <!-- Derecha: foto con chips de datos -->
+    <div class="l-hero-visual">
+      <!-- Chips flotantes -->
+      <div class="l-chip lc-1">
+        <div class="lc-icon">🌾</div>
+        <div><div class="lc-title">Cosecha estimada</div><div class="lc-val">2.4 t/ha <span class="lc-up">↑ 18%</span></div></div>
+      </div>
+      <div class="l-chip lc-2">
+        <div class="lc-icon">🌡️</div>
+        <div><div class="lc-title">Temperatura</div><div class="lc-val">22°C · Parcialmente nublado</div></div>
+      </div>
+      <div class="l-chip lc-3">
+        <div class="lc-icon">💧</div>
+        <div><div class="lc-title">Sistema de riego</div><div class="lc-val">Activo <span class="lc-dot"></span></div></div>
+      </div>
+      <div class="l-chip lc-4">
+        <div class="lc-icon">🤖</div>
+        <div><div class="lc-title">CultIA</div><div class="lc-val">3 alertas nuevas</div></div>
+      </div>
+      <!-- Foto del campo -->
+      <div class="l-field-img">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=75" alt="Campo agrícola al amanecer" loading="lazy" onerror="this.parentElement.style.background='#112214'">
+        <div class="l-field-overlay"></div>
+        <!-- Mini dashboard flotante sobre la foto -->
+        <div class="l-mini-dash">
+          <div class="lmd-row"><span class="lmd-label">pH suelo</span><span class="lmd-bar"><span style="width:68%"></span></span><span class="lmd-val">6.8</span></div>
+          <div class="lmd-row"><span class="lmd-label">Humedad</span><span class="lmd-bar"><span style="width:82%"></span></span><span class="lmd-val">82%</span></div>
+          <div class="lmd-row"><span class="lmd-label">N-P-K</span><span class="lmd-bar"><span style="width:55%"></span></span><span class="lmd-val">Óptimo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOS DE CONFIANZA -->
+  <div class="l-trust-bar">
+    <span class="l-trust-label">Tecnología respaldada por</span>
+    <div class="l-trust-logos">
+      <span class="l-trust-logo">🏫 CTP José Figueres Ferrer</span>
+      <span class="l-trust-logo">🌐 Firebase · Google</span>
+      <span class="l-trust-logo">🤖 Claude AI · Anthropic</span>
+      <span class="l-trust-logo">🗺️ Open-Meteo · Leaflet</span>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <div class="como-funciona">
+    <h2 data-i18n="como-h2">¿Cómo funciona?</h2>
+    <div class="pasos">
+      <div class="paso"><div class="num">1</div><h3 data-i18n="paso1-h">Regístrate gratis</h3><p data-i18n="paso1-p">Crea tu cuenta de agricultor en menos de un minuto. Tus trabajadores también pueden tener la suya.</p></div>
+      <div class="paso"><div class="num">2</div><h3 data-i18n="paso2-h">Dibuja tu finca</h3><p data-i18n="paso2-p">Elige provincia, cantón y distrito, dibuja tu terreno en el mapa y las hectáreas se calculan solas.</p></div>
+      <div class="paso"><div class="num">3</div><h3 data-i18n="paso3-h">Recibe alertas y gestiona</h3><p data-i18n="paso3-p">Alertas de helada y lluvia, tareas para tu equipo, plan de cultivo y control de ganancias.</p></div>
+    </div>
+  </div>
+
+  <div class="landing-stats">
+    <div class="stat-item"><div class="n" data-meta="120" data-suf="+">0</div><div class="l" data-i18n="stat1">Fincas mapeadas</div></div>
+    <div class="stat-item"><div class="n" data-meta="540" data-suf="">0</div><div class="l" data-i18n="stat2">Hectáreas monitoreadas</div></div>
+    <div class="stat-item"><div class="n" data-meta="28" data-suf="">0</div><div class="l" data-i18n="stat3">Cultivos soportados</div></div>
+    <div class="stat-item"><div class="n" data-meta="24" data-suf="/7">0</div><div class="l" data-i18n="stat4">Asistente IA</div></div>
+  </div>
+
+  <div class="landing-features">
+    <div class="landing-feat"><div class="icon">🗺️</div><h3 data-i18n="feat1-h">Mapea tu finca</h3><p data-i18n="feat1-p">Dibuja el área exacta de tus terrenos sobre un mapa satelital y calcula las hectáreas automáticamente.</p></div>
+    <div class="landing-feat"><div class="icon">🌦️</div><h3 data-i18n="feat2-h">Clima en tiempo real</h3><p data-i18n="feat2-p">Pronóstico hora a hora para tu zona: temperatura, lluvia, humedad y viento para planificar tu jornada.</p></div>
+    <div class="landing-feat"><div class="icon">👷</div><h3 data-i18n="feat3-h">Gestiona tu equipo</h3><p data-i18n="feat3-p">Registra a tus empleados y asígnales tareas de campo con prioridad y seguimiento en vivo.</p></div>
+    <div class="landing-feat"><div class="icon">🛒</div><h3 data-i18n="feat4-h">Tienda agrícola</h3><p data-i18n="feat4-p">Fertilizantes orgánicos, sensores IoT y servicios técnicos a un clic de distancia.</p></div>
+    <div class="landing-feat"><div class="icon">🤖</div><h3 data-i18n="feat5-h">Asistente IA</h3><p data-i18n="feat5-p">Consulta plagas, enfermedades y manejo agronómico con CultIA, tu agrónomo virtual 24/7.</p></div>
+  </div>
+
+  <div class="testimonios">
+    <div class="testimonio">
+      <p>"Antes apuntaba todo en un cuaderno. Ahora veo en el celular cuándo viene la helada y mando a tapar las papas a tiempo."</p>
+      <div class="quien"><div class="ava">J</div><div><b>Don José Mora</b><small>Papero · Tierra Blanca, Cartago</small></div></div>
+    </div>
+    <div class="testimonio">
+      <p>"Mis peones marcan las tareas desde su teléfono en el campo. Yo veo todo sin tener que llamarlos a cada rato."</p>
+      <div class="quien"><div class="ava">M</div><div><b>María Solano</b><small>Fresas · Los Santos</small></div></div>
+    </div>
+    <div class="testimonio">
+      <p>"El plan de cultivo me dice cuándo fertilizar y cuándo cosechar. La ganancia del mes la veo en un solo gráfico."</p>
+      <div class="quien"><div class="ava">R</div><div><b>Rafael Ureña</b><small>Aguacate Hass · Pérez Zeledón</small></div></div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="l-cta-final">
+    <div class="l-cta-box">
+      <h2>¿Listo para digitalizar tu finca?</h2>
+      <p>Únete a más de 500 agricultores costarricenses que ya gestionan su campo con tecnología.</p>
+      <button class="btn-landing-cta" onclick="goToLogin()" style="font-size:16px;padding:18px 48px;">Crear cuenta gratis →</button>
+      <div class="l-trust" style="margin-top:16px;justify-content:center;">
+        <span>✅ Sin tarjeta de crédito</span>
+        <span>🔒 Datos seguros</span>
+        <span>📱 Funciona en móvil</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-footer">
+    <div class="links">
+      <a href="mailto:soportecultyra@gmail.com">📧 soportecultyra@gmail.com</a>
+      <a href="https://wa.me/50662053039" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="#" onclick="goToLogin();return false;">🔑 Iniciar Sesión</a>
+    </div>
+    <p data-i18n="footer-p">CULTYRA · Proyecto STEAM · CTP José Figueres Ferrer · Costa Rica 🇨🇷 · 2026</p>
+  </div>
+</div>
+
+<!-- ===== LOGIN ===== -->
+<div id="login-screen" style="display:none">
+  <div class="login-box">
+    <img src="img/logo.png" alt="Cultyra" class="login-logo">
+    <div class="login-tagline">Tecnología que cultiva el futuro</div>
+    <button class="btn-idioma" onclick="toggleIdioma()" style="position:absolute;top:16px;right:16px;background:none;border:1px solid var(--green-light);border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;color:var(--text-mid);">🌐 EN</button>
+    <div class="auth-tabs">
+      <button id="tab-login" class="auth-tab active" onclick="mostrarAuth2('login')" data-i18n="tab-login">Iniciar Sesión</button>
+      <button id="tab-registro" class="auth-tab" onclick="mostrarAuth2('registro')" data-i18n="tab-registro">Registrarse</button>
+    </div>
+
+    <!-- INICIAR SESIÓN -->
+    <div id="form-login">
+      <div class="login-error" id="login-error">Usuario o contraseña incorrectos.</div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="login-email" placeholder="admin@cultyra.com">
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="pass-wrap">
+          <input type="password" id="login-pass" placeholder="••••••••">
+          <button type="button" class="btn-ojo" onclick="togglePass('login-pass', this)">👁️</button>
+        </div>
+      </div>
+      <label class="recordarme"><input type="checkbox" id="login-recordar" checked><span id="lbl-recordar-txt"> Mantener sesión iniciada</span></label>
+      <button class="btn-login" onclick="doLogin()" data-i18n="btn-entrar">Entrar</button>
+      <div class="o-divisor">o</div>
+      <button class="btn-google" onclick="doLoginGoogle()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Continuar con Google
+      </button>
+      <button type="button" class="link-olvide" onclick="mostrarAuth2('recuperar')">¿Olvidaste tu contraseña?</button>
+    </div>
+
+    <!-- REGISTRARSE -->
+    <div id="form-registro" style="display:none">
+      <div class="login-error" id="registro-error"></div>
+      <div class="login-success" id="registro-success"></div>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" id="reg-nombre" placeholder="Ej. María Solano">
+      </div>
+      <div class="form-group">
+        <label>Tipo de cuenta</label>
+        <select id="reg-rol" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--green-light);font-family:'DM Sans',sans-serif;font-size:14px;background:var(--white);color:var(--text-dark);">
+          <option value="agricultor">🧑‍🌾 Agricultor (administra fincas)</option>
+          <option value="empleado">👷 Empleado de campo (ve sus tareas)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="reg-email" placeholder="tucorreo@ejemplo.com">
+      </div>
+      <div class="form-group">
+        <label>Contraseña (mín. 6 caracteres)</label>
+        <div class="pass-wrap">
+          <input type="password" id="reg-pass" placeholder="••••••••">
+          <button type="button" class="btn-ojo" onclick="togglePass('reg-pass', this)">👁️</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Confirmar contraseña</label>
+        <div class="pass-wrap">
+          <input type="password" id="reg-pass2" placeholder="••••••••">
+          <button type="button" class="btn-ojo" onclick="togglePass('reg-pass2', this)">👁️</button>
+        </div>
+      </div>
+      <button class="btn-login" onclick="doRegistro()" data-i18n="btn-crear">Crear cuenta</button>
+      <div class="o-divisor">o</div>
+      <button class="btn-google" onclick="doLoginGoogle()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Registrarse con Google
+      </button>
+      <p class="login-demo" id="api-estado" style="margin-top:10px;"></p>
+    </div>
+
+    <!-- RECUPERAR CONTRASEÑA -->
+    <div id="form-recuperar" style="display:none">
+      <div class="login-error" id="recuperar-msg"></div>
+      <p style="font-size:13px;color:var(--text-mid);margin-bottom:16px;">
+        Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.
+      </p>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="rec-email" placeholder="tucorreo@ejemplo.com">
+      </div>
+      <button class="btn-login" onclick="doRecuperar()">Enviar correo de recuperación</button>
+      <button type="button" class="link-olvide" onclick="mostrarAuth2('login')">← Volver a iniciar sesión</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app">
+  <nav>
+    <div class="nav-left">
+      <button class="nav-burger" id="nav-burger" onclick="toggleNavMenu()" title="Menú" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <img src="img/logo.png" alt="Cultyra" class="nav-logo">
+    </div>
+
+    <div class="nav-right">
+      <span id="sync-estado" style="font-size:11px;font-family:'Space Mono',monospace;color:var(--text-light);">💾 Local</span>
+      <button class="btn-cart" onclick="abrirCarrito()" title="Carrito">🛒<span class="badge" id="cart-badge" style="display:none">0</span></button>
+      <div class="nav-avatar" id="nav-avatar" onclick="abrirPerfil()" title="Mi perfil">A</div>
+      <span class="nav-username" id="nav-username">Admin</span>
+      <button class="btn-logout" onclick="doLogout()">Salir</button>
+    </div>
+  </nav>
+
+  <!-- PANEL DESPLEGABLE DEL MENÚ -->
+  <div class="nav-menu-overlay" id="nav-menu-overlay" onclick="toggleNavMenu()"></div>
+  <div class="nav-menu-panel" id="nav-menu-panel">
+    <div class="nav-menu-search">
+      <div class="buscador-global" style="max-width:none;">
+        <span class="lupa">🔍</span>
+        <input type="text" id="buscador-input" placeholder="Buscar..." oninput="buscarGlobal(this.value)">
+        <div class="buscador-res" id="buscador-res"></div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="showSection('dashboard', this); toggleNavMenu()">Inicio</button>
+      <button class="nav-btn" onclick="showSection('informacion', this); toggleNavMenu()">Información</button>
+      <button class="nav-btn" onclick="showSection('cultivo', this); toggleNavMenu()">Mi Cultivo</button>
+      <button class="nav-btn" onclick="showSection('clima', this); toggleNavMenu()">Clima</button>
+      <button class="nav-btn" onclick="showSection('sensores', this); toggleNavMenu()">Sensores</button>
+      <button class="nav-btn" onclick="showSection('empleados', this); toggleNavMenu()">Empleados</button>
+      <button class="nav-btn" onclick="showSection('registros', this); toggleNavMenu()">Registros</button>
+      <button class="nav-btn" onclick="showSection('calendario', this); toggleNavMenu()">Calendario</button>
+      <button class="nav-btn" onclick="showSection('comparar', this); toggleNavMenu()">Comparar</button>
+      <button class="nav-btn" onclick="showSection('ia', this); toggleNavMenu()">IA 🌿</button>
+      <button class="nav-btn" onclick="showSection('productos', this); toggleNavMenu()">Productos</button>
+      <button class="nav-btn" onclick="showSection('ayuda', this); toggleNavMenu()">Ayuda</button>
+      <button class="nav-btn" onclick="showSection('acerca', this); toggleNavMenu()">Acerca de</button>
+    </div>
+    <div class="nav-menu-foot">
+      <button class="btn-tema" id="btn-letra" onclick="toggleLetra()" title="Letra grande" style="font-size:13px;font-weight:700;">A+ Letra grande</button>
+      <button class="btn-tema" id="btn-tema" onclick="toggleTema()" title="Modo oscuro">🌙 Modo oscuro</button>
+    </div>
+  </div>
+
+  <!-- INFORMACION -->
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="section active">
+    <div class="dash-container">
+      <div class="dash-saludo">
+        <h2 id="dash-saludo-txt">¡Buenos días! 🌱</h2>
+        <p id="dash-fecha"></p>
+      </div>
+      <div id="aviso-empleado" style="display:none;background:#eefaf2;border:1px solid rgba(82,183,136,0.5);border-radius:14px;padding:13px 18px;margin:18px 0 0;font-size:14px;color:var(--green-deep);">👷 Estás en <b>modo empleado</b>: aquí ves tus tareas asignadas, el clima y el asistente IA.</div>
+      <div class="dash-alertas" id="dash-alertas"></div>
+      <button onclick="descargarReportePDF()" style="margin:-8px 8px 14px 0;background:var(--green-mid);border:none;color:#fff;border-radius:999px;padding:8px 18px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">📄 Generar informe PDF</button>
+      <button class="btn-demo" onclick="cargarDemo()" style="margin:-8px 8px 14px 0;">✨ Cargar finca de demostración</button>
+      <button id="btn-notif" onclick="activarNotificaciones()" style="margin:-8px 0 14px;background:none;border:1px dashed var(--green-bright);color:var(--green-mid);border-radius:999px;padding:8px 18px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;">🔔 Activar notificaciones de alertas</button>
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h3>🌦️ Clima de hoy</h3>
+          <div class="big" id="dash-clima-temp">—</div>
+          <div class="sub" id="dash-clima-sub">Cargando...</div>
+          <span class="dash-link" onclick="irA('clima')">Ver pronóstico por horas →</span>
+        </div>
+        <div class="dash-card">
+          <h3>📋 Tareas pendientes</h3>
+          <div class="big" id="dash-num-tareas">0</div>
+          <ul id="dash-lista-tareas"></ul>
+        </div>
+        <div class="dash-card">
+          <h3>🌾 Mis fincas</h3>
+          <div class="big" id="dash-num-fincas">0</div>
+          <div class="sub" id="dash-ha">0 hectáreas</div>
+          <span class="dash-link" onclick="irA('cultivo')">Administrar fincas →</span>
+        </div>
+        <div class="dash-card">
+          <h3>📈 Resumen semanal</h3>
+          <ul id="dash-resumen"><li>Cargando...</li></ul>
+        </div>
+        <div class="dash-card">
+          <h3>👷 Mi equipo</h3>
+          <div class="big" id="dash-num-emp">0</div>
+          <div class="sub" id="dash-emp-sub"></div>
+          <span class="dash-link" onclick="irA('empleados')">Gestionar equipo →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="informacion" class="section">
+    <div class="hero">
+      <div class="hero-inner">
+        <!-- COLUMNA IZQUIERDA: texto -->
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            Sistema activo · CTP José Figueres Ferrer · CR 🇨🇷
+          </div>
+          <h1>Tecnología que<br><em>cultiva</em><br>el futuro</h1>
+          <p>Gestión de fincas con mapas satelitales, sensores IoT, IA agronómica y control de cultivos en tiempo real. Todo en una sola plataforma.</p>
+          <div class="hero-cta">
+            <button class="btn-primary" onclick="showSection('cultivo', document.querySelectorAll('.nav-btn')[2])">Gestionar mi Finca</button>
+            <button class="btn-secondary" onclick="showSection('ia', document.querySelectorAll('.nav-btn')[9])">Consultar IA</button>
+          </div>
+          <div class="hero-stats-row">
+            <div class="hsr-item"><span class="hsr-n">120+</span><span class="hsr-l">Fincas activas</span></div>
+            <div class="hsr-sep"></div>
+            <div class="hsr-item"><span class="hsr-n">500+</span><span class="hsr-l">Agricultores</span></div>
+            <div class="hsr-sep"></div>
+            <div class="hsr-item"><span class="hsr-n">24/7</span><span class="hsr-l">IA disponible</span></div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: ilustración agritech -->
+        <div class="hero-right">
+          <!-- Chips flotantes de datos -->
+          <div class="data-chip chip-1">💧 Humedad suelo <b>82%</b></div>
+          <div class="data-chip chip-2">🌡️ Temperatura <b>22°C</b></div>
+          <div class="data-chip chip-3">📈 Rendimiento <b>+18%</b></div>
+          <div class="data-chip chip-4">☀️ Radiación <b>1240 lux</b></div>
+
+          <!-- SVG planta + circuito -->
+          <svg class="hero-svg" viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+            <!-- FONDO glow central -->
+            <circle cx="160" cy="220" r="70" fill="rgba(52,199,89,0.05)"/>
+            <circle cx="160" cy="220" r="44" fill="rgba(52,199,89,0.08)" class="svg-pulse"/>
+
+            <!-- CIRCUITO: trazos principales (raíces) -->
+            <path d="M160 220 L160 270 L100 270 L100 310" stroke="#34c759" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.45"/>
+            <path d="M160 220 L160 270 L220 270 L220 310" stroke="#34c759" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.45"/>
+            <path d="M160 230 L70 230 L70 290 L50 290" stroke="#34c759" stroke-width="1" fill="none" opacity="0.3"/>
+            <path d="M160 230 L250 230 L250 290 L270 290" stroke="#34c759" stroke-width="1" fill="none" opacity="0.3"/>
+            <path d="M100 270 L60 270" stroke="#34c759" stroke-width="1" fill="none" opacity="0.25"/>
+            <path d="M220 270 L260 270" stroke="#34c759" stroke-width="1" fill="none" opacity="0.25"/>
+
+            <!-- Puntos de conexión (nodos de circuito) -->
+            <circle cx="100" cy="270" r="4" fill="#0d1f10" stroke="#34c759" stroke-width="1.5" opacity="0.8"/>
+            <circle cx="220" cy="270" r="4" fill="#0d1f10" stroke="#34c759" stroke-width="1.5" opacity="0.8"/>
+            <circle cx="70" cy="290" r="3" fill="#34c759" opacity="0.5"/>
+            <circle cx="250" cy="290" r="3" fill="#34c759" opacity="0.5"/>
+            <circle cx="100" cy="310" r="2.5" fill="#f59e0b" opacity="0.7"/>
+            <circle cx="220" cy="310" r="2.5" fill="#f59e0b" opacity="0.7"/>
+
+            <!-- NODO CENTRAL (corazón del sistema) -->
+            <circle cx="160" cy="220" r="22" fill="#0a1a0c" stroke="#34c759" stroke-width="2"/>
+            <circle cx="160" cy="220" r="14" fill="#112214" stroke="rgba(52,199,89,0.4)" stroke-width="1"/>
+            <circle cx="160" cy="220" r="6" fill="#34c759" class="svg-pulse"/>
+            <!-- Cruz de circuito en el nodo -->
+            <line x1="148" y1="220" x2="172" y2="220" stroke="rgba(52,199,89,0.5)" stroke-width="1"/>
+            <line x1="160" y1="208" x2="160" y2="232" stroke="rgba(52,199,89,0.5)" stroke-width="1"/>
+
+            <!-- TALLO principal -->
+            <line x1="160" y1="198" x2="160" y2="60" stroke="#34c759" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+
+            <!-- HOJAS principales -->
+            <!-- Hoja izquierda grande -->
+            <path d="M158 150 Q110 128 85 95 Q118 102 148 132 Z" fill="#34c759" opacity="0.85"/>
+            <path d="M90 97 Q112 104 148 133" stroke="rgba(134,239,172,0.6)" stroke-width="0.8" fill="none"/>
+            <!-- Hoja derecha grande -->
+            <path d="M162 138 Q208 116 235 82 Q200 90 168 120 Z" fill="#34c759" opacity="0.75"/>
+            <path d="M233 84 Q204 92 168 122" stroke="rgba(134,239,172,0.5)" stroke-width="0.8" fill="none"/>
+            <!-- Hoja superior -->
+            <path d="M157 90 Q140 58 145 34 Q168 54 166 88 Z" fill="#34c759" opacity="0.95"/>
+            <path d="M145 36 Q165 56 165 87" stroke="rgba(134,239,172,0.7)" stroke-width="1" fill="none"/>
+            <!-- Hojitas pequeñas -->
+            <path d="M158 172 Q128 155 112 138 Q140 148 157 170 Z" fill="#86efac" opacity="0.65"/>
+            <path d="M162 165 Q192 148 208 130 Q180 143 163 163 Z" fill="#86efac" opacity="0.55"/>
+
+            <!-- PARTÍCULAS de luz -->
+            <circle cx="128" cy="108" r="2" fill="#86efac" opacity="0.7" class="sparkle s1"/>
+            <circle cx="196" cy="96" r="1.5" fill="#86efac" opacity="0.6" class="sparkle s2"/>
+            <circle cx="152" cy="42" r="2" fill="#f59e0b" opacity="0.8" class="sparkle s3"/>
+            <circle cx="78" cy="90" r="1.5" fill="#34c759" opacity="0.5" class="sparkle s1"/>
+            <circle cx="238" cy="78" r="1.5" fill="#34c759" opacity="0.4" class="sparkle s2"/>
+
+            <!-- Datos flotantes en el circuito -->
+            <text x="55" y="287" font-family="Space Mono,monospace" font-size="7" fill="#34c759" opacity="0.5">pH 6.8</text>
+            <text x="242" y="287" font-family="Space Mono,monospace" font-size="7" fill="#34c759" opacity="0.5">N2O</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Nuestra Misión</h3>
+        <p>Transformar la agricultura con tecnología accesible, sostenible e inteligente, conectando al agricultor con herramientas digitales que potencien el rendimiento de sus cultivos y protejan el medio ambiente.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔭</div>
+        <h3>Nuestra Visión</h3>
+        <p>Ser la plataforma líder en agrotecnología en América Latina para 2030, construyendo un ecosistema digital donde cada finca sea un campo inteligente, productivo y en armonía con la naturaleza.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Quiénes Somos</h3>
+        <p>Cultyra es una startup costarricense fundada por apasionados de la tecnología y el agro. Ofrecemos sensores IoT, productos biodegradables y una plataforma IA para el monitoreo y cuidado de cultivos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Nuestros Números</h3>
+        <p><strong style="color:var(--green-mid);font-size:28px;">120+</strong> fincas activas<br><strong style="color:var(--green-mid);font-size:28px;">500+</strong> agricultores satisfechos<br><strong style="color:var(--green-mid);font-size:28px;">12</strong> productos certificados</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Sostenibilidad</h3>
+        <p>Todos nuestros productos son diseñados bajo criterios de economía circular. Desde el packaging reciclable hasta los insumos 100% biodegradables, cuidamos la tierra que nos alimenta.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Reconocimientos</h3>
+        <p>Premio AgroInnova 2023 · Finalistas StartUp Latam 2024 · Certificación IICA de Sostenibilidad Agrícola · Alianza con el INTA de Costa Rica.</p>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-logos">
+        <img src="img/logo.png" alt="Cultyra">
+        <img src="img/logo.png" alt="Ciberseguridad">
+      </div>
+      <p>© 2024 Cultyra – Tecnología que Cultiva el Futuro · San José, Costa Rica</p>
+      <p style="margin-top:4px;">Desarrollado con 💚 para el campo costarricense</p>
+    </footer>
+  </section>
+
+  <!-- MI CULTIVO -->
+  <section id="cultivo" class="section">
+    <div class="cultivo-container">
+      <div class="cultivo-top">
+        <div>
+          <div class="section-tag">Mi Cultivo</div>
+          <h2>Gestión de Fincas</h2>
+        </div>
+        <button class="btn-primary" onclick="openFincaModal()">+ Agregar Finca</button>
+      </div>
+      <div id="mapa-general"></div>
+      <div class="fincas-grid" id="fincas-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="bitacora-wrap">
+        <div class="section-title" style="margin-top:10px;">
+          <div class="section-tag">Línea de tiempo</div>
+          <h2 style="font-size:clamp(22px,3vw,30px);">📸 Bitácora del cultivo</h2>
+          <p>Sube fotos con fecha y nota para ver la evolución de tus terrenos.</p>
+        </div>
+        <div class="bitacora-form">
+          <div><label>Finca</label><select id="bita-finca"></select></div>
+          <div><label>Foto 📷 <span id="bita-foto-ok" style="color:var(--green-bright);font-weight:700;"></span></label><input type="file" id="bita-foto" accept="image/*" capture="environment" onchange="fotoBitacora(this)"></div>
+          <div><label>Nota (opcional)</label><input type="text" id="bita-nota" placeholder="Ej. Día 30: inicio de floración"></div>
+          <button onclick="addBitacora()">+ Agregar</button>
+        </div>
+        <div class="bitacora-linea" id="bitacora-linea"></div>
+      </div>
+      <div class="tasks-section">
+        <h3>📋 Tareas Pendientes</h3>
+        <div class="task-input-row">
+          <input type="text" class="task-input" id="task-input" placeholder="Añadir nueva tarea..." onkeydown="if(event.key==='Enter') addTask()">
+          <select class="task-select" id="task-priority">
+            <option value="alta">🔴 Alta</option>
+            <option value="media" selected>🟡 Media</option>
+            <option value="baja">🟢 Baja</option>
+          </select>
+          <select class="task-select" id="task-finca">
+            <option value="General">General</option>
+          </select>
+          <input type="date" id="task-fecha" title="Fecha límite (opcional)">
+          <button class="btn-primary" onclick="addTask()">Agregar</button>
+        </div>
+        <div class="tasks-list" id="tasks-list"></div>
+      </div>
+    </div>
+    <div class="add-finca-modal" id="add-finca-modal">
+      <div class="modal-box">
+        <h3 style="margin-bottom:4px;">🌾 Nueva Finca</h3>
+        <p style="font-size:13px;color:var(--text-light);margin-bottom:20px;">Completa los datos y dibuja tu terreno en el mapa. El área se calcula sola.</p>
+        <div class="modal-group"><label>Nombre de la Finca</label><input type="text" id="finca-nombre" placeholder="Ej. Finca La Esperanza"></div>
+        <div class="modal-group"><label>Ubicación 📍</label>
+          <div class="ubi-row">
+            <select id="sel-provincia" onchange="onProvincia()"><option value="">Provincia...</option></select>
+            <select id="sel-canton" onchange="onCanton()" disabled><option value="">Cantón...</option></select>
+            <select id="sel-distrito" onchange="onDistrito()" disabled><option value="">Distrito...</option></select>
+          </div>
+          <div class="ubi-status" id="ubi-status"></div>
+          <input type="hidden" id="finca-ubicacion">
+        </div>
+        <div class="modal-group"><label>Seleccione el área de su terreno en el mapa 🗺️</label>
+          <div id="finca-map"></div>
+          <div class="map-botones">
+            <button type="button" id="btn-dibujar" onclick="empezarDibujo()">⬠ Dibujar terreno</button>
+            <button type="button" id="btn-borrar-dibujo" onclick="borrarDibujo()">🗑️ Borrar</button>
+          </div>
+          <div class="map-hint">1) Ubique su zona con los menús de arriba · 2) Presione "Dibujar terreno" y marque las esquinas · 3) Cierre tocando el primer punto. El área se calcula sola.</div>
+        </div>
+        <div class="modal-fila">
+        <div class="modal-group"><label>Área (hectáreas)</label><input type="number" id="finca-area" placeholder="Se calcula al dibujar" step="0.01"></div>
+        <div class="modal-group"><label>Tipo de cultivo principal</label>
+          <select id="finca-cultivo">
+            <optgroup label="Zonas altas (Cerro de la Muerte, Los Santos, Cartago)">
+              <option>Papa</option><option>Cebolla</option><option>Zanahoria</option><option>Repollo</option>
+              <option>Brócoli</option><option>Coliflor</option><option>Fresa</option><option>Mora</option>
+              <option>Arándano</option><option>Manzana</option><option>Ciruela</option><option>Durazno</option>
+              <option>Aguacate Hass</option><option>Café de altura</option><option>Hortalizas de hoja</option>
+              <option>Flores y follajes</option><option>Trucha (acuicultura)</option>
+            </optgroup>
+            <optgroup label="Zonas medias y bajas">
+              <option>Café</option><option>Piña</option><option>Plátano</option><option>Banano</option>
+              <option>Yuca</option><option>Tomate</option><option>Lechuga</option><option>Caña de azúcar</option>
+              <option>Arroz</option><option>Frijol</option><option>Maíz</option>
+            </optgroup>
+            <option>Otro</option>
+          </select>
+        </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-cancel" onclick="cerrarModalFinca()">Cancelar</button>
+          <button id="btn-guardar-finca" class="btn-primary" style="flex:1;" onclick="addFinca()">Guardar Finca</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA -->
+  <section id="ia" class="section">
+    <div class="ia-container">
+      <div class="ia-header">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="ia-badge">🧠 CultIA — Visión + Texto</div>
+            <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;border:1px solid rgba(99,102,241,0.3);padding:2px 8px;border-radius:99px;font-weight:600">Claude AI · Multimodal</span>
+          </div>
+          <button onclick="nuevaConversacionIA()" style="background:none;border:1px dashed rgba(52,199,89,0.5);color:var(--green-mid);border-radius:999px;padding:5px 14px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">🔄 Nueva conversación</button>
+        </div>
+        <div id="ia-personalizacion" style="display:none;font-size:11px;background:rgba(52,199,89,0.1);border:1px solid rgba(52,199,89,0.25);color:var(--green-bright);padding:4px 12px;border-radius:99px;margin-bottom:8px;width:fit-content"></div>
+        <h2>Asistente de Cultivo IA</h2>
+        <p>Consulta sobre plagas, enfermedades, fertilizantes biodegradables y más.</p>
+      </div>
+      <div class="ia-suggestions" id="ia-suggestions">
+        <span class="suggestion-chip" onclick="sendSuggestion(this.innerText)">🐛 ¿Cómo combatir pulgones?</span>
+        <span class="suggestion-chip" onclick="sendSuggestion(this.innerText)">🍅 Mi tomate tiene manchas amarillas</span>
+        <span class="suggestion-chip" onclick="sendSuggestion(this.innerText)">🌱 Abonos biodegradables para café</span>
+        <span class="suggestion-chip" onclick="sendSuggestion(this.innerText)">💧 Frecuencia de riego ideal</span>
+        <span class="suggestion-chip" onclick="sendSuggestion(this.innerText)">🌿 Control de hongos en lechuga</span>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="msg assistant">
+          <div class="msg-bubble">¡Hola! Soy el asistente inteligente de Cultyra 🌱. Puedo ayudarte con recomendaciones sobre plagas, enfermedades, productos biodegradables y el cuidado de tus cultivos. ¿En qué puedo ayudarte hoy?</div>
+          <span class="msg-time">Ahora</span>
+        </div>
+        <div class="typing-indicator" id="typing">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+      <div class="ia-chips">
+        <button class="ia-chip" onclick="preguntaRapida('¿Debería regar hoy mi cultivo según el clima?')">💧 ¿Riego hoy?</button>
+        <button class="ia-chip" onclick="preguntaRapida('¿Cuáles son las plagas más comunes de la papa y cómo las controlo?')">🐛 Plagas de la papa</button>
+        <button class="ia-chip" onclick="preguntaRapida('¿Cuándo y con qué debo fertilizar mi cultivo?')">🌱 ¿Cuándo fertilizo?</button>
+        <button class="ia-chip" onclick="preguntaRapida('¿Cómo protejo mi cultivo de una helada?')">❄️ Protección de heladas</button>
+        <button class="ia-chip" onclick="preguntaRapida('¿Qué cultivo me recomiendas para zonas altas de Costa Rica?')">⛰️ Cultivos de altura</button>
+      </div>
+      <div class="chat-input-area">
+        <!-- Preview imagen -->
+        <div id="ia-img-preview" style="display:none;padding:4px 8px;border-top:1px solid rgba(52,199,89,0.12)"></div>
+        <!-- Input oculto para imagen -->
+        <input type="file" id="ia-foto-input" accept="image/*" capture="environment" style="display:none" onchange="procesarImagenIA(this)">
+        <div style="display:flex;align-items:flex-end;gap:8px">
+          <button onclick="document.getElementById('ia-foto-input').click()" title="Tomar foto o subir imagen"
+            style="background:rgba(52,199,89,0.12);border:1px solid rgba(52,199,89,0.3);border-radius:12px;padding:10px 12px;cursor:pointer;font-size:20px;flex-shrink:0;line-height:1;color:var(--green-bright)">📸</button>
+          <textarea class="chat-input" id="chat-input" rows="1"
+            placeholder="Preguntá sobre tu cultivo o subí una foto 📸..."
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
+          <button class="chat-send" onclick="sendMessage()">
+            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+          </button>
+        </div>
+        <div style="font-size:11px;color:var(--text-light);text-align:center;margin-top:6px;opacity:0.7">
+          📸 Fotos de plantas, plagas o suelo · 🌍 Agricultura CR y mundial · Powered by Claude AI
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="section">
+    <div class="productos-container">
+      <div class="section-title">
+        <div class="section-tag">Catálogo</div>
+        <h2>Nuestros Productos</h2>
+        <p>Sensores, servicios y agroquímicos biodegradables para tu campo</p>
+      </div>
+      <div class="tienda-buscar"><span class="lupa">🔍</span><input type="text" id="tienda-input" placeholder="Buscar producto... Ej. abono, sensor" oninput="buscarTienda(this.value)"></div>
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterProductos('todos', this)">Todos</button>
+        <button class="filter-btn" onclick="filterProductos('sensor', this)">Sensores IoT</button>
+        <button class="filter-btn" onclick="filterProductos('biodegradable', this)">Biodegradables</button>
+        <button class="filter-btn" onclick="filterProductos('servicio', this)">Servicios</button>
+      </div>
+      <div class="productos-grid" id="productos-grid"></div>
+    </div>
+    <div class="cart-toast" id="cart-toast">✅ Producto agregado al carrito</div>
+  </section>
+
+  <!-- AYUDA -->
+  <section id="ayuda" class="section">
+    <div class="ayuda-container">
+      <div class="section-title">
+        <div class="section-tag">Soporte</div>
+        <h2>Centro de Ayuda</h2>
+        <p>Contáctanos o consulta nuestros consejos técnicos</p>
+      </div>
+      <div class="ayuda-grid">
+        <div class="ayuda-card">
+          <div class="ayuda-icon">📧</div>
+          <h3>Soporte por Email</h3>
+          <p>Escríbenos y un técnico especialista te responderá en menos de 24 horas hábiles.</p>
+<a href="mailto:soportecultyra@gmail.com">soportecultyra@gmail.com</a>
+        </div>
+        <div class="ayuda-card">
+          <div class="ayuda-icon">📱</div>
+          <h3>Soporte Telefónico</h3>
+          <p>Llámanos en horario hábil. También disponible por WhatsApp para consultas rápidas de campo.</p>
+          <a href="tel:+50662053039">+506 6205-3039</a><br>
+          <a href="https://wa.me/50662053039" style="margin-top:6px;display:block;">WhatsApp: +506 6205-3039</a>
+        </div>
+        <div class="ayuda-card">
+          <div class="ayuda-icon">🧑‍🌾</div>
+          <h3>Técnico en Campo</h3>
+          <p>Solicita una visita de nuestros agrónomos para diagnóstico presencial y asesoría personalizada.</p>
+          <a href="mailto:soportecultyra@gmail.com">soportecultyra@gmail.com</a>
+        </div>
+      </div>
+      <div class="consejos-section">
+        <h3>💡 Consejos Técnicos Rápidos</h3>
+        <div class="consejo-list">
+          <div class="consejo-item">
+            <span class="consejo-emoji">🌧️</span>
+            <div><h4>Riego en época lluviosa</h4><p>Reduce la frecuencia de riego en un 40% durante invierno. Monitorea la humedad del suelo con sensores para evitar encharcamiento y enfermedades fungales.</p></div>
+          </div>
+          <div class="consejo-item">
+            <span class="consejo-emoji">🦗</span>
+            <div><h4>Control preventivo de plagas</h4><p>Aplica extracto de neem (1%) cada 15 días como repelente preventivo. Es 100% biodegradable y no daña a los polinizadores.</p></div>
+          </div>
+          <div class="consejo-item">
+            <span class="consejo-emoji">🌿</span>
+            <div><h4>Abonado orgánico eficiente</h4><p>Combina compost maduro con bocashi en proporción 2:1. Aplica al pie de la planta y riega inmediatamente para activar los microorganismos benéficos.</p></div>
+          </div>
+          <div class="consejo-item">
+            <span class="consejo-emoji">☀️</span>
+            <div><h4>Protección contra el sol excesivo</h4><p>En verano intenso usa mallas de sombra al 35% para cultivos sensibles como lechuga y cilantro. Aumenta el rendimiento hasta un 25%.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-section">
+        <h3>Solicitar Soporte Técnico</h3>
+        <div class="form-row">
+          <div class="form-field"><label>Nombre</label><input type="text" id="cf-nombre" placeholder="Tu nombre completo"></div>
+          <div class="form-field"><label>Teléfono</label><input type="tel" id="cf-tel" placeholder="+506 0000-0000"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Email</label><input type="email" id="cf-email" placeholder="tu@correo.com"></div>
+          <div class="form-field"><label>Tipo de consulta</label>
+            <select id="cf-tipo">
+              <option>Plaga o enfermedad</option>
+              <option>Problema con sensor</option>
+              <option>Consulta de productos</option>
+              <option>Visita técnica</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field"><label>Descripción del problema</label><textarea id="cf-mensaje" placeholder="Describe el problema de tu cultivo..."></textarea></div>
+        <button class="btn-primary" id="btn-enviar-soporte" onclick="submitContact()" style="width:100%;">Enviar Solicitud</button>
+        <div class="form-success" id="contact-success">✅ ¡Solicitud enviada! Un técnico de Cultyra se pondrá en contacto contigo en menos de 24 horas.</div>
+        <p style="font-size:11.5px;color:var(--text-light);margin-top:10px;text-align:center;">Tu solicitud se envía directamente a <b>soportecultyra@gmail.com</b> · respondemos en menos de 24 h hábiles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTROS -->
+  <section id="registros" class="section">
+    <div class="registros-container">
+      <div class="section-title">
+        <div class="section-tag">Finanzas del campo</div>
+        <h2>Cosechas, ventas y gastos</h2>
+        <p>Anota lo que cosechas, vendes y gastas para saber cuánto gana tu finca.</p>
+      </div>
+      <div class="reg-form">
+        <div><label>Finca</label><select id="reg-finca"></select></div>
+        <div><label>Tipo</label>
+          <select id="reg-tipo">
+            <option value="cosecha">🌾 Cosecha (kg)</option>
+            <option value="venta">💵 Venta (₡)</option>
+            <option value="gasto">🧾 Gasto (₡)</option>
+          </select>
+        </div>
+        <div><label>Cantidad</label><input type="number" id="reg-monto" placeholder="Ej. 250" min="0" step="any"></div>
+        <div><label>Nota (opcional)</label><input type="text" id="reg-nota" placeholder="Ej. Venta de papa en la feria"></div>
+        <button onclick="addRegistro()">+ Anotar</button>
+        <button onclick="exportarCSV()" style="background:none;border:1px solid var(--green-mid);color:var(--green-mid);">⬇ Excel</button>
+      </div>
+      <div class="reg-resumen">
+        <div class="reg-kpi"><div class="v" id="kpi-kilos">0 kg</div><div class="l">Cosechado</div></div>
+        <div class="reg-kpi"><div class="v" id="kpi-ventas">₡0</div><div class="l">Ventas</div></div>
+        <div class="reg-kpi gas"><div class="v" id="kpi-gastos">₡0</div><div class="l">Gastos</div></div>
+        <div class="reg-kpi gan"><div class="v" id="kpi-ganancia">₡0</div><div class="l">Ganancia</div></div>
+      </div>
+      <div class="reg-lista" style="margin-bottom:24px;padding:18px 22px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text-dark);">Ventas vs gastos — últimos 6 meses</h3>
+        <div class="reg-chart" id="reg-chart"></div>
+        <p style="font-size:11.5px;color:var(--text-light);font-family:'Space Mono',monospace;">🟢 ventas · 🔴 gastos</p>
+      </div>
+      <div class="reg-lista" style="margin-bottom:24px;padding:18px 22px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text-dark);margin-bottom:8px;">🏆 Rendimiento por finca (kg/ha)</h3>
+        <div id="rend-lista"></div>
+      </div>
+      <div class="reg-lista" id="reg-lista"></div>
+    </div>
+  </section>
+
+  <!-- CLIMA -->
+  <section id="clima" class="section">
+    <div class="clima-container">
+      <div class="section-title">
+        <div class="section-tag">Pronóstico</div>
+        <h2>Clima en tiempo real</h2>
+        <p>Busca tu zona y conoce cómo estará el tiempo durante las próximas horas.</p>
+      </div>
+      <div class="clima-fincas" id="clima-fincas"></div>
+      <div class="clima-search">
+        <input type="text" id="clima-input" placeholder="Buscar lugar... Ej. Cartago, Pérez Zeledón" onkeydown="if(event.key==='Enter') buscarLugar()">
+        <button onclick="buscarLugar()">🔍 Buscar</button>
+      </div>
+      <div class="clima-results" id="clima-results"></div>
+      <div class="clima-loading" id="clima-loading">Cargando pronóstico...</div>
+
+      <div class="clima-current" id="clima-current">
+        <div class="lugar" id="cc-lugar">—</div>
+        <div class="temp-big" id="cc-temp">--°</div>
+        <div class="desc" id="cc-desc">—</div>
+        <div class="clima-stats">
+          <div>💧 Humedad<span id="cc-hum">--%</span></div>
+          <div>🌧️ Prob. lluvia<span id="cc-lluvia">--%</span></div>
+          <div>💨 Viento<span id="cc-viento">-- km/h</span></div>
+        </div>
+      </div>
+
+      <h3 class="horas-title" id="horas-title">⏱️ Próximas 24 horas</h3>
+      <div class="horas-scroll" id="horas-scroll"></div>
+
+      <div class="hist-card" id="hist-card">
+        <h3>📊 Lluvia y temperatura — últimos 7 días</h3>
+        <div class="hist-grid" id="hist-grid"></div>
+        <p style="font-size:12px;color:var(--text-light);margin-top:12px;font-family:'Space Mono',monospace;">Barras = lluvia acumulada (mm) · Temperaturas máx/mín por día. Útil para decidir el riego.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section id="calendario" class="section">
+    <div class="registros-container">
+      <div class="section-title">
+        <div class="section-tag">Agenda</div>
+        <h2>Calendario de tareas</h2>
+        <p>Las etapas de tus planes de cultivo, mes a mes.</p>
+      </div>
+      <div class="cal-header">
+        <button class="cal-nav" onclick="calCambiar(-1)">‹</button>
+        <h3 id="cal-titulo"></h3>
+        <button class="cal-nav" onclick="calCambiar(1)">›</button>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+  </section>
+
+  <!-- COMPARAR -->
+  <section id="comparar" class="section">
+    <div class="registros-container">
+      <div class="section-title">
+        <div class="section-tag">Análisis</div>
+        <h2>Comparar fincas</h2>
+        <p>Cuál produce más, cuál es más rentable. Datos de tus registros.</p>
+      </div>
+      <div id="comparar-cont"></div>
+    </div>
+  </section>
+
+  <!-- ACERCA DE -->
+  <section id="acerca" class="section">
+    <div class="acerca-container">
+      <div class="acerca-hero">
+        <h2>🌱 Acerca de CULTYRA</h2>
+        <p>Tecnología que cultiva el futuro. Una plataforma hecha por estudiantes para que los agricultores de Costa Rica gestionen sus fincas con datos, no con suposiciones.</p>
+      </div>
+
+      <div class="acerca-bloque">
+        <h3>El problema que resolvemos</h3>
+        <p>Muchos pequeños agricultores costarricenses llevan el control de sus fincas en cuadernos o de memoria: no saben con certeza cuánto producen, cuánto gastan ni cuándo viene una helada que puede arruinar la cosecha. CULTYRA reúne en un solo lugar el mapeo de terrenos, el clima en tiempo real, la gestión del equipo de trabajo, el plan de cada cultivo y el control de ganancias, de forma simple y en español.</p>
+      </div>
+
+      <div class="acerca-bloque">
+        <h3>El equipo</h3>
+        <div class="equipo-grid">
+          <div class="equipo-card"><div class="av">K</div><b>Keilor</b><small>Desarrollo web · Full-stack</small></div>
+          <div class="equipo-card"><div class="av">E</div><b>Eduar Urbina</b><small>Hardware · Sensores IoT</small></div>
+          <div class="equipo-card"><div class="av">S</div><b>Santiago Navarro</b><small>Ciberseguridad · Diseño</small></div>
+        </div>
+        <p style="margin-top:16px;text-align:center;">Proyecto STEAM · Departamento de Informática y Ciberseguridad<br><b>CTP José Figueres Ferrer</b> · Costa Rica 🇨🇷</p>
+      </div>
+
+      <div class="acerca-bloque">
+        <h3>Tecnologías que usamos</h3>
+        <div class="tech-chips">
+          <span class="tech-chip">HTML5 / CSS3</span><span class="tech-chip">JavaScript</span>
+          <span class="tech-chip">Leaflet (mapas)</span><span class="tech-chip">Open-Meteo (clima)</span>
+          <span class="tech-chip">Node.js + Express</span><span class="tech-chip">SQLite</span>
+          <span class="tech-chip">Firebase Auth</span><span class="tech-chip">Firebase Hosting</span>
+          <span class="tech-chip">Claude AI</span><span class="tech-chip">ESP32 (IoT)</span><span class="tech-chip">PWA</span>
+        </div>
+      </div>
+
+      <div class="acerca-bloque" style="text-align:center;">
+        <h3>Contacto</h3>
+        <p>¿Dudas, ideas o quieres una demostración?</p>
+        <p style="margin-top:8px;"><a href="mailto:soportecultyra@gmail.com" style="color:var(--green-mid);font-weight:600;font-size:16px;">📧 soportecultyra@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SENSORES -->
+  <section id="sensores" class="section">
+    <div class="sensores-container">
+      <div class="section-title">
+        <div class="section-tag">IoT en el campo</div>
+        <h2>Sensores de la finca</h2>
+        <p>Monitoreo de tu cultivo con nodos ESP32. Función en preparación.</p>
+      </div>
+      <div class="sensores-aviso">📡 <b>Próximamente:</b> esta sección mostrará las lecturas reales de los sensores ESP32 que se están instalando en campo (hardware del proyecto). Aún no hay datos en vivo: no mostramos cifras inventadas.</div>
+      <div class="sensores-grid">
+        <div class="sensor-card proximamente">
+          <div class="prox-badge">Próximamente</div>
+          <div class="sensor-head"><h3>💧 Humedad del suelo</h3></div>
+          <div class="sensor-valor-prox">— %</div>
+          <div class="sensor-meta">Sensor capacitivo · esperando conexión del nodo</div>
+        </div>
+        <div class="sensor-card proximamente">
+          <div class="prox-badge">Próximamente</div>
+          <div class="sensor-head"><h3>🌡️ Temperatura ambiente</h3></div>
+          <div class="sensor-valor-prox">— °C</div>
+          <div class="sensor-meta">Sensor DHT · esperando conexión del nodo</div>
+        </div>
+        <div class="sensor-card proximamente">
+          <div class="prox-badge">Próximamente</div>
+          <div class="sensor-head"><h3>☀️ Luz solar</h3></div>
+          <div class="sensor-valor-prox">— lux</div>
+          <div class="sensor-meta">Sensor de luz · esperando conexión del nodo</div>
+        </div>
+        <div class="sensor-card proximamente">
+          <div class="prox-badge">Próximamente</div>
+          <div class="sensor-head"><h3>🪨 pH del suelo</h3></div>
+          <div class="sensor-valor-prox">—</div>
+          <div class="sensor-meta">Sonda de pH · esperando conexión del nodo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPLEADOS -->
+  <section id="empleados" class="section">
+    <div class="empleados-container">
+      <div class="section-title">
+        <div class="section-tag">Mi Equipo</div>
+        <h2>Gestión de empleados</h2>
+        <p>Registra a tus trabajadores y asígnales tareas de campo.</p>
+      </div>
+      <div class="empleado-form">
+        <div><label>Nombre completo</label><input type="text" id="emp-nombre" placeholder="Ej. Juan Pérez"></div>
+        <div><label>Rol / Puesto</label>
+          <select id="emp-rol">
+            <option>Peón agrícola</option>
+            <option>Capataz</option>
+            <option>Operador de maquinaria</option>
+            <option>Riego y fumigación</option>
+            <option>Cosecha</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div><label>Teléfono</label><input type="tel" id="emp-tel" placeholder="+506 0000-0000"></div>
+        <button id="btn-add-emp" onclick="addEmpleado()">+ Agregar</button>
+      </div>
+      <div class="empleados-grid" id="empleados-grid"></div>
+    </div>
+  </section>
+
+
+  <div id="reporte"></div>
+
+  <!-- INDICADOR GUARDADO -->
+  <div id="guardado-flash">✓ Guardado</div>
+
+  <!-- MODAL PERFIL -->
+  <div class="modal-overlay" id="perfil-modal">
+    <div class="modal" style="max-width:380px;text-align:center;">
+      <div class="perfil-modal-foto" id="perfil-foto-prev">A</div>
+      <h3 id="perfil-nombre" style="font-family:'Playfair Display',serif;color:var(--text-dark);margin-bottom:4px;">Mi perfil</h3>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:18px;">Personaliza tu cuenta con una foto.</p>
+      <input type="file" id="perfil-foto-input" accept="image/*" capture="user" onchange="subirFotoPerfil(this)" style="display:none">
+      <button class="perfil-btn-foto" onclick="document.getElementById('perfil-foto-input').click()">📷 Cambiar foto</button>
+      <div class="modal-actions" style="margin-top:20px;">
+        <button class="btn-cancel" onclick="document.getElementById('perfil-modal').classList.remove('open')" style="flex:1;">Cerrar</button>
+        <button class="btn-primary" onclick="doLogout()" style="flex:1;background:none;border:1px solid #ef5350;color:#ef5350;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOASTS Y DIÁLOGO -->
+  <div id="toasts"></div>
+  <div id="dialogo-overlay">
+    <div class="dialogo">
+      <div class="ic" id="dialogo-ic">🗑️</div>
+      <p id="dialogo-msg"></p>
+      <div class="botones">
+        <button class="no" onclick="dialogoResponder(false)">Cancelar</button>
+        <button class="si" onclick="dialogoResponder(true)">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONBOARDING -->
+  <div class="onb-overlay" id="onb-overlay">
+    <div class="onb-box">
+      <div class="onb-icon" id="onb-icon">🌱</div>
+      <h3 id="onb-titulo"></h3>
+      <p id="onb-texto"></p>
+      <div class="onb-dots" id="onb-dots"></div>
+      <div class="onb-botones">
+        <button class="saltar" onclick="cerrarOnb()">Saltar</button>
+        <button class="seguir" id="onb-seguir" onclick="onbSiguiente()">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a id="btn-wa" href="https://wa.me/50662053039?text=Hola%20Cultyra%2C%20necesito%20ayuda%20con%20mi%20finca%20%F0%9F%8C%B1" target="_blank" rel="noopener" title="Escríbenos por WhatsApp">💬</a>
+
+  <!-- CART MODAL -->
+  <div class="modal-overlay" id="cart-modal">
+    <div class="modal">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--green-deep);margin-bottom:16px;">🛒 Tu carrito</h3>
+      <div class="cart-modal-list" id="cart-list"></div>
+      <div class="cart-total"><span>Total</span><span id="cart-total">₡0</span></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="document.getElementById('cart-modal').classList.remove('open')">Cerrar</button>
+        <button class="btn-primary" style="flex:1;" onclick="realizarPedido()">Realizar pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAN MODAL -->
+  <div class="modal-overlay" id="plan-modal">
+    <div class="modal" style="max-width:560px;">
+      <h3 id="plan-titulo" style="font-family:'Playfair Display',serif;color:var(--green-deep);margin-bottom:6px;">📅 Plan de cultivo</h3>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:14px;">Calendario generado automáticamente desde hoy. Asigna cada etapa a un empleado si lo deseas.</p>
+      <div id="plan-lista" style="max-height:330px;overflow-y:auto;"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="document.getElementById('plan-modal').classList.remove('open')">Cerrar</button>
+        <button class="btn-primary" style="flex:1;" onclick="asignarPlan()">Asignar tareas al equipo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Lógica de Cultyra (módulos) -->
+  <!-- ===== FIREBASE SDK ===== -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey:            "AIzaSyAMCLoZZDHbAhnjI--ufvSsd8EHFtpQSMs",
+      authDomain:        "cultyraagr.firebaseapp.com",
+      projectId:         "cultyraagr",
+      storageBucket:     "cultyraagr.firebasestorage.app",
+      messagingSenderId: "162025634494",
+      appId:             "1:162025634494:web:6207435692980db075bcef"
+    });
+  </script>
+
+  <!-- ======================== -->
+
+  <script src="js/ui.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/clima.js"></script>
+  <script src="js/fincas.js"></script>
+  <script src="js/tareas.js"></script>
+  <script src="js/ia.js"></script>
+  <script src="js/tienda.js"></script>
+  <script src="js/registros.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/landing.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/pagos.js"></script>
+  <script src="js/seguridad.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/mejoras.js"></script>
+  <script src="js/mejoras2.js"></script>
+  <script src="js/mejoras3.js"></script>
+  <script src="js/init.js"></script>
+
+  <!-- Registro del Service Worker (PWA) -->
+  <script src="js/sw-register.js"></script>
+</body>
+</html>

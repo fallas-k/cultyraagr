@@ -1,11 +1,11 @@
 // Cultyra Service Worker — permite instalar la app y abrirla sin conexión
-const CACHE = 'cultyra-v15';
+const CACHE = 'cultyra-v17';
 const ARCHIVOS = [
   './index.html', './manifest.json', './css/styles.css', './img/logo.png',
   './img/icon-192.png', './img/icon-512.png',
   './js/ui.js','./js/storage.js','./js/auth.js','./js/clima.js','./js/fincas.js',
   './js/tareas.js','./js/ia.js','./js/tienda.js','./js/registros.js',
-  './js/dashboard.js','./js/landing.js','./js/admin.js','./js/icons.js','./js/pagos.js','./js/seguridad.js','./js/tracking.js','./js/mejoras.js','./js/mejoras2.js','./js/mejoras3.js','./js/init.js','./js/sw-register.js'
+  './js/dashboard.js','./js/landing.js','./js/admin.js','./js/icons.js','./js/pagos.js','./js/tracking.js','./js/mejoras.js','./js/mejoras2.js','./js/mejoras3.js','./js/init.js','./js/sw-register.js'
 ];
 
 self.addEventListener('install', e => {
